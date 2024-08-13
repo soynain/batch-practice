@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 @Configuration
 public class DataSourceConfig {
@@ -29,5 +30,10 @@ public class DataSourceConfig {
             .password(password)
             .driverClassName(driverClassName)
             .build();
+    }
+
+    @Bean
+    public DataSourceTransactionManager transactionManager(DataSource dataSource) {
+        return new DataSourceTransactionManager(dataSource);
     }
 }

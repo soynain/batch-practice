@@ -3,7 +3,7 @@ to laravel*/
 DROP TABLE IF EXISTS batch_table_migrate;
 
 create table batch_table_migrate(
-    int primary key auto_increment not null,
+    id int primary key auto_increment not null,
     sej_uuid binary(36) null default null,
     description varchar(200) default null,
     code int null default null,
